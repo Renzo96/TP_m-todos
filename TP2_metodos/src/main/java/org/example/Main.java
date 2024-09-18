@@ -6,9 +6,11 @@ import java.util.Scanner;
 import java.text.ParseException;
 
 public class Main {
-    public static void main(String[] args) {
+static String textoejercicio7;
+public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int option;
+       // static string textoejercicio7;
         do {
             System.out.println("Seleccione el ejercicio que desea ejecutar");
             System.out.println("1. ");
@@ -87,9 +89,9 @@ public class Main {
                 case 2:
                     ejercicio2(scanner);
                     break;
-//                case 3:
-//                    ejercicio3();
-//                    break;
+                case 3:
+                    ejercicio3(scanner);
+                    break;
 //                case 4:
 //                    ejercicio4(scanner);
 //                    break;
@@ -99,12 +101,12 @@ public class Main {
                 case 6:
                     ejercicio6(scanner);
                     break;
-//                case 7:
-//                    ejercicio7();
-//                    break;
-//                case 8:
-//                    ejercicio8(scanner);
-//                    break;
+                case 7:
+                    ejercicio7(scanner);
+                   break;
+                case 8:
+                   ejercicio8();
+                   break;
 //                case 9:
 //                    ejercicio9();
 //                    break;
@@ -175,15 +177,50 @@ public class Main {
             System.out.println("El valor " + valor + " está dentro del rango de byte y se ha asignado correctamente.");
         }
     }
+    public static void ejercicio3(Scanner scanner) {
+System.out.println("Ingrese un numero del 100 al 999:");
+int num = scanner.nextInt();
+while (num<99 || num>1000){
+System.out.print("Numero incorrecto!! \nIngrese un numero del 100-999");
+num = scanner.nextInt();
+}
+int unidad = num % 10;          
+int decena = (num / 10) % 10;   
+int centena = num / 100;        
+int suma = unidad + decena + centena;
+System.out.println("La suma de los dígitos es: " + suma);
+}
 
 
-    public static void ejercicio6(Scanner scanner) {
+
+ public static void ejercicio6(Scanner scanner) {
         System.out.println("Ingrese el string para calcular su número de caracteres");
         String frase = scanner.nextLine();
         int numeroCaracteres = frase.length();
         System.out.println("La frase " + frase + " tiene caracteres " + numeroCaracteres);
     }
-
+    public static void ejercicio7(Scanner scanner ) {
+     System.out.println("Ingese una cadena :");
+     String palabra = scanner.nextLine();
+     textoejercicio7=palabra;
+     int cont=0,i;
+     char letra;
+        for (i=0 ; i<palabra.length();i++){
+            letra=Character.toLowerCase(palabra.charAt(i));
+            if ( letra == 'a' || letra ==  'e' || letra == 'i' || letra == 'o' || letra == 'u'){
+             cont++;
+            }
+        }
+     System.out.println("La cadena tiene "+ palabra.length() + " letras y "+cont+" vocales.");
+    }
+    public static void ejercicio8() {
+        if (textoejercicio7 != null) {
+            String textoejercicio8 = textoejercicio7.replace('a', 'e');
+            System.out.println(textoejercicio8);
+        } else {
+            System.out.println("El texto para el ejercicio 8 no está inicializado.");
+        }
+    }
     public static void ejercicio10(Scanner scanner) {
         System.out.println("Ingrese una frase para transformar a mayúsculas o minúsculas");
         String frase = scanner.nextLine();
