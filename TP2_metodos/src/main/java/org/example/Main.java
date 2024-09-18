@@ -1,6 +1,7 @@
 package org.example;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.Scanner;
 import java.text.ParseException;
@@ -10,7 +11,6 @@ static String textoejercicio7;
 public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int option;
-       // static string textoejercicio7;
         do {
             System.out.println("Seleccione el ejercicio que desea ejecutar");
             System.out.println("1. ");
@@ -113,9 +113,9 @@ public static void main(String[] args) {
                 case 10:
                     ejercicio10(scanner);
                     break;
-//                case 11:
-//                    ejercicio11();
-//                    break;
+                case 11:
+                    ejercicio11(scanner);
+                    break;
 //                case 12:
 //                    ejercicio12(scanner);
 //                    break;
@@ -234,6 +234,20 @@ System.out.println("La suma de los dígitos es: " + suma);
             System.out.println("La frase en minúscula es " + frase_minuscula + "");
         } else {
             System.out.println("Opción no valida, intente de nuevo");
+        }
+    }
+    public static void ejercicio11(Scanner scanner){
+        String [] palabras = new String[2];
+        for(int i=0 ; i<2 ;i++){
+         System.out.println("Ingrese la cadena "+(i+1));
+         palabras[i]= scanner.nextLine();}
+        boolean cont=palabras[0].equalsIgnoreCase(palabras[1]);
+        System.out.println(cont);
+        if (cont == false){
+         System.out.println("Las cadenas son distintas");
+        }
+        else{
+            System.out.println("Las cadenas son iguales");
         }
     }
 
