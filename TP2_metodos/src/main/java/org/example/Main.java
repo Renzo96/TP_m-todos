@@ -16,25 +16,25 @@ public static void main(String[] args) {
             System.out.println("1. ");
             System.out.println("2. Fuera de rango (byte, short, int, long, float, double)");
             System.out.println("3. ");
-            System.out.println("4. ");
+            System.out.println("4. Determinar el número de billetes y monedas");
             System.out.println("5. ");
             System.out.println("6. Contador de caracteres");
             System.out.println("7. ");
-            System.out.println("8. ");
+            System.out.println("8. Reemplaza todas las a del String");
             System.out.println("9. ");
             System.out.println("10. ");
             System.out.println("11.)");
-            System.out.println("12. ");
+            System.out.println("12. Extraer con método Substring");
             System.out.println("13. ");
             System.out.println("14. ");
             System.out.println("15. ");
-            System.out.println("16. ");
-            System.out.println("17. ");
-            System.out.println("18. ");
+            System.out.println("16. Transformar una variable tipo Double");
+            System.out.println("17. Fechas");
+            System.out.println("18. Fechas");
             System.out.println("19. ");
-            System.out.println("20. ");
+            System.out.println("20. Fracciones (constructor sobrecargado) ");
             System.out.println("21.)");
-            System.out.println("22. ");
+            System.out.println("22. Sumar Dígitos");
             System.out.println("23. ");
             System.out.println("0. Salir");
             System.out.println("Opción: ");
@@ -92,9 +92,9 @@ public static void main(String[] args) {
                 case 3:
                     ejercicio3(scanner);
                     break;
-//                case 4:
-//                    ejercicio4(scanner);
-//                    break;
+                case 4:
+                    ejercicio4(scanner);
+                    break;
 //                case 5:
 //                    ejercicio5(scanner);
 //                    break;
@@ -116,9 +116,9 @@ public static void main(String[] args) {
                 case 11:
                     ejercicio11(scanner);
                     break;
-//                case 12:
-//                    ejercicio12(scanner);
-//                    break;
+                case 12:
+                    ejercicio12(scanner);
+                    break;
 //                case 13:
 //                   ejercicio13(scanner);
 //                    break;
@@ -128,9 +128,9 @@ public static void main(String[] args) {
 //                case 15:
 //                    ejercicio15(scanner);
 //                    break;
-//                case 16:
-//                    ejercicio16(scanner);
-//                    break;
+                case 16:
+                    ejercicio16();
+                    break;
                 case 17:
                     ejercicio17(scanner);
                     break;
@@ -140,9 +140,9 @@ public static void main(String[] args) {
 //                case 19:
 //                    ejercicio19(scanner);
 //                    break;
-//                case 20:
-//                    ejercicio20();
-//                    break;
+                case 20:
+                    ejercicio20(scanner);
+                    break;
 //                case 21:
 //                    ejercicio21(scanner);
 //                    break;
@@ -178,19 +178,36 @@ public static void main(String[] args) {
         }
     }
     public static void ejercicio3(Scanner scanner) {
-System.out.println("Ingrese un numero del 100 al 999:");
-int num = scanner.nextInt();
-while (num<99 || num>1000){
-System.out.print("Numero incorrecto!! \nIngrese un numero del 100-999");
-num = scanner.nextInt();
+        System.out.println("Ingrese un numero del 100 al 999:");
+        int num = scanner.nextInt();
+        while (num<99 || num>1000){
+        System.out.print("Numero incorrecto!! \nIngrese un numero del 100-999");
+        num = scanner.nextInt();
+        }
+        int unidad = num % 10;
+        int decena = (num / 10) % 10;
+        int centena = num / 100;
+        int suma = unidad + decena + centena;
+        System.out.println("La suma de los dígitos es: " + suma);
 }
-int unidad = num % 10;          
-int decena = (num / 10) % 10;   
-int centena = num / 100;        
-int suma = unidad + decena + centena;
-System.out.println("La suma de los dígitos es: " + suma);
-}
+    public static void ejercicio4(Scanner scanner) {
+        //ingreso de los datos
+        System.out.println("Ingrese el precio para ver los billetes necesarios.");
+        double efectivo = scanner.nextDouble();
+        //calculo de billetes
+        double[] billetesYMonedas = {200, 100, 50, 20, 10, 5, 2, 1, 0.50, 0.25, 0.10, 0.05};
+        for (double posicionDenominaciones : billetesYMonedas) {
+            int cdad = (int) (efectivo / posicionDenominaciones);
+            if (cdad > 0) {
+                System.out.println(cdad + " de " + posicionDenominaciones);
+                efectivo %= posicionDenominaciones;
+            } else if (cdad < 1 && cdad > 0) {
+                System.out.println(cdad + " monedas de " + posicionDenominaciones);
+                efectivo %= posicionDenominaciones;
 
+            }
+        }
+    }
 
 
  public static void ejercicio6(Scanner scanner) {
@@ -251,7 +268,43 @@ System.out.println("La suma de los dígitos es: " + suma);
         }
     }
 
+    public static void ejercicio12(Scanner scanner) {
+        System.out.println("Ingrese una cadena de letras o números:");
+        String textoCadena = scanner.nextLine();
+
+        if (textoCadena.length() >= 5) {
+            String cuartaSeleccion = textoCadena.substring(3, 4);
+            String quintaSeleccion = textoCadena.substring(4, 5);
+
+            if (cuartaSeleccion.equals(" ")) {
+                System.out.println("El carácter número 4 es: ''" + cuartaSeleccion + "'' (espacio)");
+            } else {
+                System.out.println("El carácter número 4 es: ''" + cuartaSeleccion + "''");
+            }
+
+            if (quintaSeleccion.equals(" ")) {
+                System.out.println("El carácter número 5 es: ''" + quintaSeleccion + "'' (espacio)");
+            } else {
+                System.out.println("El carácter número 5 es: ''" + quintaSeleccion + "''");
+            }
+        } else {
+            System.out.println("La cadena es demasiado corta. Debe tener al menos 5 carácteres. Por favor, intente nuevamente");
+        }
+
+    }
+
+
+
     public static void ejercicio14(Scanner scanner) {
+    }
+
+    public static void ejercicio16() {
+        System.out.println("¿Como podria converitr una variable tipo Double (Envolvente) a una variable tipo double (Primitivo).");
+
+        System.out.println("Java automaticamente convertirá el tipo de variable segun se necesite con tan solo agregar\nDouble a la variable double y viceversa ");
+        System.out.println();
+        System.out.println("Si no, otra forma es con el metodo 'double value'.Se usa de la siguiente manera;");
+        System.out.println("");
     }
 
     public static void ejercicio17(Scanner scanner) {
@@ -326,6 +379,26 @@ System.out.println("La suma de los dígitos es: " + suma);
         Date fecha = FuncionesPrograma.getFechaDate(dia, mes, anio);
         System.out.println("La fecha es: " + fecha);
     }
+
+    public static void ejercicio20(Scanner scanner) {
+        System.out.println("Ingrese el numerador y denominador de la primer fracción:");
+        FuncionesPrograma.Fraccion f1 = new FuncionesPrograma.Fraccion(scanner.nextInt(), scanner.nextInt());
+
+        System.out.println("Ingrese el numerador y denominador de la segunda fracción:");
+        FuncionesPrograma.Fraccion f2 = new FuncionesPrograma.Fraccion(scanner.nextInt(), scanner.nextInt());
+
+        FuncionesPrograma.Fraccion suma = FuncionesPrograma.Fraccion.sumarFracciones(f1, f2);
+        FuncionesPrograma.Fraccion resta = FuncionesPrograma.Fraccion.restarFracciones(f1, f2);
+        FuncionesPrograma.Fraccion multiplicacion = FuncionesPrograma.Fraccion.multiplicarFracciones(f1, f2);
+        FuncionesPrograma.Fraccion division = FuncionesPrograma.Fraccion.dividirFracciones(f1, f2);
+
+        System.out.println("Sumadas son: " + suma);
+        System.out.println("Restadas son: " + resta);
+        System.out.println("Multiplicadas son: " + multiplicacion);
+        System.out.println("Divididas son: " + division);
+    }
+
+
 
     public static void ejercicio22(Scanner scanner) {
         int numero;
