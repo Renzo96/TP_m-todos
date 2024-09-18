@@ -1,40 +1,41 @@
 package org.example;
 
 import java.text.SimpleDateFormat;
-
 import java.util.Date;
 import java.util.Scanner;
 import java.text.ParseException;
 
 public class Main {
-static String textoejercicio7;
-public static void main(String[] args) {
+    static String textoejercicio7;
+
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int option;
+        // static string textoejercicio7;
         do {
             System.out.println("Seleccione el ejercicio que desea ejecutar");
-            System.out.println("1. ");
+            System.out.println("1.Castear un double");
             System.out.println("2. Fuera de rango (byte, short, int, long, float, double)");
             System.out.println("3. ");
-            System.out.println("4. Determinar el número de billetes y monedas");
-            System.out.println("5. ");
+            System.out.println("4. ");
+            System.out.println("5. convertir un numero a string ");
             System.out.println("6. Contador de caracteres");
             System.out.println("7. ");
-            System.out.println("8. Reemplaza todas las a del String");
-            System.out.println("9. ");
+            System.out.println("8. ");
+            System.out.println("9. Pasar la cadena a codigo ASCII");
             System.out.println("10. ");
-            System.out.println("11.)");
-            System.out.println("12. Extraer con método Substring");
-            System.out.println("13. ");
+            System.out.println("11.");
+            System.out.println("12. ");
+            System.out.println("13. comprubar si la primera cadena contiene a la segunda");
             System.out.println("14. ");
             System.out.println("15. ");
-            System.out.println("16. Transformar una variable tipo Double");
-            System.out.println("17. Fechas");
-            System.out.println("18. Fechas");
+            System.out.println("16. ");
+            System.out.println("17. ");
+            System.out.println("18. ");
             System.out.println("19. ");
-            System.out.println("20. Fracciones (constructor sobrecargado) ");
-            System.out.println("21.)");
-            System.out.println("22. Sumar Dígitos");
+            System.out.println("20. ");
+            System.out.println("21.sumar los antecesores de un numero mayor a 0");
+            System.out.println("22. ");
             System.out.println("23. ");
             System.out.println("0. Salir");
             System.out.println("Opción: ");
@@ -83,54 +84,54 @@ public static void main(String[] args) {
 
 
             switch (option) {
-//                case 1:
-//                    ejercicio1();
-//                    break;
+                case 1:
+                    ejercicio1(scanner);
+                    break;
                 case 2:
                     ejercicio2(scanner);
                     break;
                 case 3:
                     ejercicio3(scanner);
                     break;
-                case 4:
-                    ejercicio4(scanner);
-                    break;
-//                case 5:
-//                    ejercicio5(scanner);
+//                case 4:
+//                    ejercicio4(scanner);
 //                    break;
+                case 5:
+                    ejercicio5(scanner);
+                    break;
                 case 6:
-                    ejercicio6(scanner);
+                    ejercicio6();
                     break;
                 case 7:
                     ejercicio7(scanner);
-                   break;
+                    break;
                 case 8:
-                   ejercicio8();
-                   break;
-//                case 9:
-//                    ejercicio9();
-//                    break;
+                    ejercicio8();
+                    break;
+                case 9:
+                    ejercicio9();
+                    break;
                 case 10:
                     ejercicio10(scanner);
                     break;
-                case 11:
-                    ejercicio11(scanner);
-                    break;
-                case 12:
-                    ejercicio12(scanner);
-                    break;
-//                case 13:
-//                   ejercicio13(scanner);
+//                case 11:
+//                    ejercicio11();
 //                    break;
+//                case 12:
+//                    ejercicio12(scanner);
+//                    break;
+                case 13:
+                   ejercicio13(scanner);
+                    break;
                 case 14:
                     ejercicio14(scanner);
                     break;
 //                case 15:
 //                    ejercicio15(scanner);
 //                    break;
-                case 16:
-                    ejercicio16();
-                    break;
+//                case 16:
+//                    ejercicio16(scanner);
+//                    break;
                 case 17:
                     ejercicio17(scanner);
                     break;
@@ -140,12 +141,12 @@ public static void main(String[] args) {
 //                case 19:
 //                    ejercicio19(scanner);
 //                    break;
-                case 20:
-                    ejercicio20(scanner);
-                    break;
-//                case 21:
-//                    ejercicio21(scanner);
+//                case 20:
+//                    ejercicio20();
 //                    break;
+                case 21:
+                    ejercicio21(scanner);
+                    break;
                 case 22:
                     ejercicio22(scanner);
                     break;
@@ -165,6 +166,25 @@ public static void main(String[] args) {
         scanner.close();
     }
 
+    public static void ejercicio1(Scanner scanner) {
+        System.out.println("Ingresa un numero decimal: ");
+        double valorDecimal = scanner.nextDouble();
+
+        short valorShort = (short) valorDecimal;
+        int valorInt = (int) valorDecimal;
+        long valorLong = (long) valorDecimal;
+        String valorString = String.valueOf(valorDecimal);
+        float valorFloat = (float) valorDecimal;
+
+        System.out.println("Valor original (double): " + valorDecimal);
+        System.out.println("Valor convertido a short: " + valorShort);
+        System.out.println("Valor convertido a int: " + valorInt);
+        System.out.println("Valor convertido a long: " + valorLong);
+        System.out.println("Valor convertido a String: " + valorString);
+        System.out.println("Valor convertido a float: " + valorFloat);
+        scanner.close();
+    }
+
     public static void ejercicio2(Scanner scanner) {
         System.out.println("Ingrese un número para validar");
         int valor = scanner.nextInt();
@@ -177,59 +197,53 @@ public static void main(String[] args) {
             System.out.println("El valor " + valor + " está dentro del rango de byte y se ha asignado correctamente.");
         }
     }
+
     public static void ejercicio3(Scanner scanner) {
         System.out.println("Ingrese un numero del 100 al 999:");
         int num = scanner.nextInt();
-        while (num<99 || num>1000){
-        System.out.print("Numero incorrecto!! \nIngrese un numero del 100-999");
-        num = scanner.nextInt();
+        while (num < 99 || num > 1000) {
+            System.out.print("Numero incorrecto!! \nIngrese un numero del 100-999");
+            num = scanner.nextInt();
         }
         int unidad = num % 10;
         int decena = (num / 10) % 10;
         int centena = num / 100;
         int suma = unidad + decena + centena;
         System.out.println("La suma de los dígitos es: " + suma);
-}
-    public static void ejercicio4(Scanner scanner) {
-        //ingreso de los datos
-        System.out.println("Ingrese el precio para ver los billetes necesarios.");
-        double efectivo = scanner.nextDouble();
-        //calculo de billetes
-        double[] billetesYMonedas = {200, 100, 50, 20, 10, 5, 2, 1, 0.50, 0.25, 0.10, 0.05};
-        for (double posicionDenominaciones : billetesYMonedas) {
-            int cdad = (int) (efectivo / posicionDenominaciones);
-            if (cdad > 0) {
-                System.out.println(cdad + " de " + posicionDenominaciones);
-                efectivo %= posicionDenominaciones;
-            } else if (cdad < 1 && cdad > 0) {
-                System.out.println(cdad + " monedas de " + posicionDenominaciones);
-                efectivo %= posicionDenominaciones;
+    }
 
+    public static void ejercicio5(Scanner scanner) {
+
+        System.out.println("Ingrese un numero: :");
+        double numero_ej5 = scanner.nextDouble();
+
+        String numero_String = String.valueOf(numero_ej5);
+        System.out.println("El numero comvertido a String es: " + numero_String);
+        scanner.close();
+    }
+
+
+    public static void ejercicio6() {
+        String frase = "La lluvia en Mendoza es escasa";
+        int tamaño = frase.length();
+        System.out.println("La frase " + frase + " tiene caracteres " + tamaño);
+    }
+
+    public static void ejercicio7(Scanner scanner) {
+        System.out.println("Ingese una cadena :");
+        String palabra = scanner.nextLine();
+        textoejercicio7 = palabra;
+        int cont = 0, i;
+        char letra;
+        for (i = 0; i < palabra.length(); i++) {
+            letra = Character.toLowerCase(palabra.charAt(i));
+            if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
+                cont++;
             }
         }
+        System.out.println("La cadena tiene " + palabra.length() + " letras y " + cont + " vocales.");
     }
 
-
- public static void ejercicio6(Scanner scanner) {
-        System.out.println("Ingrese el string para calcular su número de caracteres");
-        String frase = scanner.nextLine();
-        int numeroCaracteres = frase.length();
-        System.out.println("La frase " + frase + " tiene caracteres " + numeroCaracteres);
-    }
-    public static void ejercicio7(Scanner scanner ) {
-     System.out.println("Ingese una cadena :");
-     String palabra = scanner.nextLine();
-     textoejercicio7=palabra;
-     int cont=0,i;
-     char letra;
-        for (i=0 ; i<palabra.length();i++){
-            letra=Character.toLowerCase(palabra.charAt(i));
-            if ( letra == 'a' || letra ==  'e' || letra == 'i' || letra == 'o' || letra == 'u'){
-             cont++;
-            }
-        }
-     System.out.println("La cadena tiene "+ palabra.length() + " letras y "+cont+" vocales.");
-    }
     public static void ejercicio8() {
         if (textoejercicio7 != null) {
             String textoejercicio8 = textoejercicio7.replace('a', 'e');
@@ -238,6 +252,22 @@ public static void main(String[] args) {
             System.out.println("El texto para el ejercicio 8 no está inicializado.");
         }
     }
+
+    public static void ejercicio9() {
+
+        String frase_9 = "La lluvia en Mendoza es escasa";
+
+        System.out.println("Codigos ASCII de la cadena");
+        for (int i = 0; i < frase_9.length(); i++) {
+
+            int codigoASCII = (int) frase_9.charAt(i);
+
+            System.out.println(codigoASCII + " ");
+
+        }
+
+    }
+
     public static void ejercicio10(Scanner scanner) {
         System.out.println("Ingrese una frase para transformar a mayúsculas o minúsculas");
         String frase = scanner.nextLine();
@@ -253,58 +283,23 @@ public static void main(String[] args) {
             System.out.println("Opción no valida, intente de nuevo");
         }
     }
-    public static void ejercicio11(Scanner scanner){
-        String [] palabras = new String[2];
-        for(int i=0 ; i<2 ;i++){
-         System.out.println("Ingrese la cadena "+(i+1));
-         palabras[i]= scanner.nextLine();}
-        boolean cont=palabras[0].equalsIgnoreCase(palabras[1]);
-        System.out.println(cont);
-        if (cont == false){
-         System.out.println("Las cadenas son distintas");
-        }
-        else{
-            System.out.println("Las cadenas son iguales");
-        }
-    }
 
-    public static void ejercicio12(Scanner scanner) {
-        System.out.println("Ingrese una cadena de letras o números:");
-        String textoCadena = scanner.nextLine();
+    public static void ejercicio13(Scanner scanner) {
 
-        if (textoCadena.length() >= 5) {
-            String cuartaSeleccion = textoCadena.substring(3, 4);
-            String quintaSeleccion = textoCadena.substring(4, 5);
+        System.out.print("Ingrese la primera cadena: ");
+        String cadena1 = scanner.nextLine();
 
-            if (cuartaSeleccion.equals(" ")) {
-                System.out.println("El carácter número 4 es: ''" + cuartaSeleccion + "'' (espacio)");
-            } else {
-                System.out.println("El carácter número 4 es: ''" + cuartaSeleccion + "''");
-            }
+        System.out.print("Ingrese la segunda cadena: ");
+        String cadena2 = scanner.nextLine();
 
-            if (quintaSeleccion.equals(" ")) {
-                System.out.println("El carácter número 5 es: ''" + quintaSeleccion + "'' (espacio)");
-            } else {
-                System.out.println("El carácter número 5 es: ''" + quintaSeleccion + "''");
-            }
+        if (cadena1.contains(cadena2)) {
+            System.out.println("La segunda cadena se encuentra dentro de la primera.");
         } else {
-            System.out.println("La cadena es demasiado corta. Debe tener al menos 5 carácteres. Por favor, intente nuevamente");
+            System.out.println("La segunda cadena NO se encuentra dentro de la primera.");
         }
-
     }
-
-
 
     public static void ejercicio14(Scanner scanner) {
-    }
-
-    public static void ejercicio16() {
-        System.out.println("¿Como podria converitr una variable tipo Double (Envolvente) a una variable tipo double (Primitivo).");
-
-        System.out.println("Java automaticamente convertirá el tipo de variable segun se necesite con tan solo agregar\nDouble a la variable double y viceversa ");
-        System.out.println();
-        System.out.println("Si no, otra forma es con el metodo 'double value'.Se usa de la siguiente manera;");
-        System.out.println("");
     }
 
     public static void ejercicio17(Scanner scanner) {
@@ -321,6 +316,7 @@ public static void main(String[] args) {
             scanner.next();
         }
     }
+
     public static void ejercicio18(Scanner scanner) {
         int dia;
         int mes;
@@ -380,24 +376,30 @@ public static void main(String[] args) {
         System.out.println("La fecha es: " + fecha);
     }
 
-    public static void ejercicio20(Scanner scanner) {
-        System.out.println("Ingrese el numerador y denominador de la primer fracción:");
-        FuncionesPrograma.Fraccion f1 = new FuncionesPrograma.Fraccion(scanner.nextInt(), scanner.nextInt());
+    public static void ejercicio21(Scanner scanner) {
 
-        System.out.println("Ingrese el numerador y denominador de la segunda fracción:");
-        FuncionesPrograma.Fraccion f2 = new FuncionesPrograma.Fraccion(scanner.nextInt(), scanner.nextInt());
+        System.out.print("Ingresa un número entero mayor a cero: ");
+        int numero = scanner.nextInt();
 
-        FuncionesPrograma.Fraccion suma = FuncionesPrograma.Fraccion.sumarFracciones(f1, f2);
-        FuncionesPrograma.Fraccion resta = FuncionesPrograma.Fraccion.restarFracciones(f1, f2);
-        FuncionesPrograma.Fraccion multiplicacion = FuncionesPrograma.Fraccion.multiplicarFracciones(f1, f2);
-        FuncionesPrograma.Fraccion division = FuncionesPrograma.Fraccion.dividirFracciones(f1, f2);
+        if (numero > 0) {
 
-        System.out.println("Sumadas son: " + suma);
-        System.out.println("Restadas son: " + resta);
-        System.out.println("Multiplicadas son: " + multiplicacion);
-        System.out.println("Divididas son: " + division);
+            int sumatotal = sumarNumeros(numero);
+            System.out.println("La suma de los números desde " + numero + " hasta 1 es: " + sumatotal);
+        } else {
+            System.out.println("El número ingresado debe ser mayor a cero.");
+        }
+        scanner.close();
     }
 
+    public static int sumarNumeros(int n) {
+
+        if (n == 1) {
+            return 1;
+        } else {
+
+            return n + sumarNumeros(n - 1);
+        }
+    }
 
 
     public static void ejercicio22(Scanner scanner) {
