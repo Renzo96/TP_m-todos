@@ -66,6 +66,7 @@ public class FuncionesPrograma {
             return mcd(b, a % b);
         }
     }
+    
 }
 
 

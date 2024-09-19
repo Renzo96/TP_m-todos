@@ -17,7 +17,7 @@ public class Main {
             System.out.println("1.Castear un double");
             System.out.println("2. Fuera de rango (byte, short, int, long, float, double)");
             System.out.println("3. ");
-            System.out.println("4. ");
+            System.out.println("4. Determinar el número de billetes y monedas");
             System.out.println("5. convertir un numero a string ");
             System.out.println("6. Contador de caracteres");
             System.out.println("7. ");
@@ -25,16 +25,16 @@ public class Main {
             System.out.println("9. Pasar la cadena a codigo ASCII");
             System.out.println("10. ");
             System.out.println("11.");
-            System.out.println("12. ");
+            System.out.println("12. Extraer con método Substring");
             System.out.println("13. comprubar si la primera cadena contiene a la segunda");
             System.out.println("14. ");
             System.out.println("15. ");
-            System.out.println("16. ");
+            System.out.println("16. Transformar una variable tipo Double");
             System.out.println("17. ");
             System.out.println("18. ");
             System.out.println("19. ");
-            System.out.println("20. ");
-            System.out.println("21.sumar los antecesores de un numero mayor a 0");
+            System.out.println("20. Fracciones (constructor sobrecargado) ");
+            System.out.println("21. Sumar los antecesores de un numero mayor a 0");
             System.out.println("22. ");
             System.out.println("23. ");
             System.out.println("0. Salir");
@@ -130,7 +130,7 @@ public class Main {
                     ejercicio15();
                     break;
                case 16:
-                   ejercicio16(scanner);
+                   ejercicio16();
                    break;
                 case 17:
                     ejercicio17(scanner);
@@ -142,7 +142,7 @@ public class Main {
                    ejercicio19();
                    break;
                case 20:
-                   ejercicio20();
+                   ejercicio20(scanner);
                    break;
                 case 21:
                     ejercicio21(scanner);
@@ -150,9 +150,9 @@ public class Main {
                 case 22:
                     ejercicio22(scanner);
                     break;
-//                case 23:
-//                    ejercicio23(scanner);
-//                    break;
+                case 23:
+                    ejercicio23(scanner);
+                    break;
                 case 0:
                     System.out.println("Saliendo...");
                     break;
@@ -211,7 +211,24 @@ public class Main {
         int suma = unidad + decena + centena;
         System.out.println("La suma de los dígitos es: " + suma);
     }
+    public static void ejercicio4(Scanner scanner) {
+        //ingreso de los datos
+        System.out.println("Ingrese el precio para ver los billetes necesarios.");
+        double efectivo = scanner.nextDouble();
+        //calculo de billetes
+        double[] billetesYMonedas = {200, 100, 50, 20, 10, 5, 2, 1, 0.50, 0.25, 0.10, 0.05};
+        for (double posicionDenominaciones : billetesYMonedas) {
+            int cdad = (int) (efectivo / posicionDenominaciones);
+            if (cdad > 0) {
+                System.out.println(cdad + " de " + posicionDenominaciones);
+                efectivo %= posicionDenominaciones;
+            } else if (cdad < 1 && cdad > 0) {
+                System.out.println(cdad + " monedas de " + posicionDenominaciones);
+                efectivo %= posicionDenominaciones;
 
+            }
+        }
+    }
     public static void ejercicio5(Scanner scanner) {
 
         System.out.println("Ingrese un numero: :");
@@ -297,23 +314,7 @@ public class Main {
             System.out.println("Las cadenas son iguales");
         }
     }
-
-    public static void ejercicio13(Scanner scanner) {
-
-        System.out.print("Ingrese la primera cadena: ");
-        String cadena1 = scanner.nextLine();
-
-        System.out.print("Ingrese la segunda cadena: ");
-        String cadena2 = scanner.nextLine();
-
-        if (cadena1.contains(cadena2)) {
-            System.out.println("La segunda cadena se encuentra dentro de la primera.");
-        } else {
-            System.out.println("La segunda cadena NO se encuentra dentro de la primera.");
-        }
-    }
-
-        public static void ejercicio12(Scanner scanner) {
+    public static void ejercicio12(Scanner scanner) {
         System.out.println("Ingrese una cadena de letras o números:");
         String textoCadena = scanner.nextLine();
 
@@ -337,6 +338,22 @@ public class Main {
         }
       }      
     
+    public static void ejercicio13(Scanner scanner) {
+
+        System.out.print("Ingrese la primera cadena: ");
+        String cadena1 = scanner.nextLine();
+
+        System.out.print("Ingrese la segunda cadena: ");
+        String cadena2 = scanner.nextLine();
+
+        if (cadena1.contains(cadena2)) {
+            System.out.println("La segunda cadena se encuentra dentro de la primera.");
+        } else {
+            System.out.println("La segunda cadena NO se encuentra dentro de la primera.");
+        }
+    }
+
+        
 
     public static void ejercicio14(Scanner scanner) {
     }
@@ -506,5 +523,16 @@ System.out.println("Debemos cambiar la variable a un objeto ya que la palabra nu
         } else {
             return (numero % 10) + sumarDigitos(numero / 10);
         }
+    }
+
+    public static void ejercicio23(Scanner scanner){
+      
+        System.out.print("Ingresa un texto: ");
+        String entrada = scanner.nextLine();
+        String textoInvertido = invertirTexto(entrada);
+        System.out.println("Texto invertido: " + textoInvertido);
+    }
+    public static String invertirTexto(String texto) {
+     return invertirTexto(texto.substring(1)) + texto.charAt(0);
     }
 }
