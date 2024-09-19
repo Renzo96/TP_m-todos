@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int option;
-        // static string textoejercicio7;
+
         do {
             System.out.println("Seleccione el ejercicio que desea ejecutar");
             System.out.println("1.Castear un double");
@@ -114,9 +114,9 @@ public class Main {
                 case 10:
                     ejercicio10(scanner);
                     break;
-//                case 11:
-//                    ejercicio11();
-//                    break;
+                case 11:
+                    ejercicio11(scanner);
+                    break;
                case 12:
                    ejercicio12(scanner);
                    break;
@@ -126,9 +126,9 @@ public class Main {
                 case 14:
                     ejercicio14(scanner);
                     break;
-//                case 15:
-//                    ejercicio15(scanner);
-//                    break;
+                case 15:
+                    ejercicio15();
+                    break;
                case 16:
                    ejercicio16(scanner);
                    break;
@@ -138,9 +138,9 @@ public class Main {
                 case 18:
                     ejercicio18(scanner);
                     break;
-//                case 19:
-//                    ejercicio19(scanner);
-//                    break;
+                case 19:
+                   ejercicio19();
+                   break;
                case 20:
                    ejercicio20();
                    break;
@@ -283,6 +283,20 @@ public class Main {
             System.out.println("Opción no valida, intente de nuevo");
         }
     }
+        public static void ejercicio11(Scanner scanner){
+        String [] palabras = new String[2];
+        for(int i=0 ; i<2 ;i++){
+         System.out.println("Ingrese la cadena "+(i+1));
+         palabras[i]= scanner.nextLine();}
+        boolean cont=palabras[0].equalsIgnoreCase(palabras[1]);
+        System.out.println(cont);
+        if (cont == false){
+         System.out.println("Las cadenas son distintas");
+        }
+        else{
+            System.out.println("Las cadenas son iguales");
+        }
+    }
 
     public static void ejercicio13(Scanner scanner) {
 
@@ -326,6 +340,13 @@ public class Main {
 
     public static void ejercicio14(Scanner scanner) {
     }
+    public static void ejercicio15(){
+    /*15- Indique que sucede si realizo la siguiente declaración de variable:
+int numero = null;
+¿Qué debo modificar para poder asignar null a la variable?*/
+Integer numero= null;
+System.out.println("Debemos cambiar la variable a un objeto ya que la palabra null es dedicada a objetos : "+numero);
+    } 
 
     public static void ejercicio16() {
     System.out.println("¿Como podria converitr una variable tipo Double (Envolvente) a una variable tipo double (Primitivo).");
@@ -410,6 +431,9 @@ public class Main {
         Date fecha = FuncionesPrograma.getFechaDate(dia, mes, anio);
         System.out.println("La fecha es: " + fecha);
     }
+        public static void ejercicio19(){
+            Calculo.main();
+}
 
         public static void ejercicio20(Scanner scanner) {
         System.out.println("Ingrese el numerador y denominador de la primer fracción:");
