@@ -93,9 +93,9 @@ public class Main {
                 case 3:
                     ejercicio3(scanner);
                     break;
-//                case 4:
-//                    ejercicio4(scanner);
-//                    break;
+               case 4:
+                   ejercicio4(scanner);
+                   break;
                 case 5:
                     ejercicio5(scanner);
                     break;
@@ -117,9 +117,9 @@ public class Main {
 //                case 11:
 //                    ejercicio11();
 //                    break;
-//                case 12:
-//                    ejercicio12(scanner);
-//                    break;
+               case 12:
+                   ejercicio12(scanner);
+                   break;
                 case 13:
                    ejercicio13(scanner);
                     break;
@@ -129,9 +129,9 @@ public class Main {
 //                case 15:
 //                    ejercicio15(scanner);
 //                    break;
-//                case 16:
-//                    ejercicio16(scanner);
-//                    break;
+               case 16:
+                   ejercicio16(scanner);
+                   break;
                 case 17:
                     ejercicio17(scanner);
                     break;
@@ -141,9 +141,9 @@ public class Main {
 //                case 19:
 //                    ejercicio19(scanner);
 //                    break;
-//                case 20:
-//                    ejercicio20();
-//                    break;
+               case 20:
+                   ejercicio20();
+                   break;
                 case 21:
                     ejercicio21(scanner);
                     break;
@@ -299,8 +299,43 @@ public class Main {
         }
     }
 
+        public static void ejercicio12(Scanner scanner) {
+        System.out.println("Ingrese una cadena de letras o números:");
+        String textoCadena = scanner.nextLine();
+
+        if (textoCadena.length() >= 5) {
+            String cuartaSeleccion = textoCadena.substring(3, 4);
+            String quintaSeleccion = textoCadena.substring(4, 5);
+
+            if (cuartaSeleccion.equals(" ")) {
+                System.out.println("El carácter número 4 es: ''" + cuartaSeleccion + "'' (espacio)");
+            } else {
+                System.out.println("El carácter número 4 es: ''" + cuartaSeleccion + "''");
+            }
+
+            if (quintaSeleccion.equals(" ")) {
+                System.out.println("El carácter número 5 es: ''" + quintaSeleccion + "'' (espacio)");
+            } else {
+                System.out.println("El carácter número 5 es: ''" + quintaSeleccion + "''");
+            }
+        } else {
+            System.out.println("La cadena es demasiado corta. Debe tener al menos 5 carácteres. Por favor, intente nuevamente");
+        }
+      }      
+    
+
     public static void ejercicio14(Scanner scanner) {
     }
+
+    public static void ejercicio16() {
+    System.out.println("¿Como podria converitr una variable tipo Double (Envolvente) a una variable tipo double (Primitivo).");
+
+    System.out.println("Java automaticamente convertirá el tipo de variable segun se necesite con tan solo agregar\nDouble a la variable double y viceversa ");
+    System.out.println();
+    System.out.println("Si no, otra forma es con el metodo 'double value'.Se usa de la siguiente manera;");
+    System.out.println("");
+}
+    
 
     public static void ejercicio17(Scanner scanner) {
         System.out.println("Ingrese la fecha a transformar en string (formato: dd/MM/yyyy)");
@@ -375,6 +410,25 @@ public class Main {
         Date fecha = FuncionesPrograma.getFechaDate(dia, mes, anio);
         System.out.println("La fecha es: " + fecha);
     }
+
+        public static void ejercicio20(Scanner scanner) {
+        System.out.println("Ingrese el numerador y denominador de la primer fracción:");
+        FuncionesPrograma.Fraccion f1 = new FuncionesPrograma.Fraccion(scanner.nextInt(), scanner.nextInt());
+
+        System.out.println("Ingrese el numerador y denominador de la segunda fracción:");
+        FuncionesPrograma.Fraccion f2 = new FuncionesPrograma.Fraccion(scanner.nextInt(), scanner.nextInt());
+
+        FuncionesPrograma.Fraccion suma = FuncionesPrograma.Fraccion.sumarFracciones(f1, f2);
+        FuncionesPrograma.Fraccion resta = FuncionesPrograma.Fraccion.restarFracciones(f1, f2);
+        FuncionesPrograma.Fraccion multiplicacion = FuncionesPrograma.Fraccion.multiplicarFracciones(f1, f2);
+        FuncionesPrograma.Fraccion division = FuncionesPrograma.Fraccion.dividirFracciones(f1, f2);
+
+        System.out.println("Sumadas son: " + suma);
+        System.out.println("Restadas son: " + resta);
+        System.out.println("Multiplicadas son: " + multiplicacion);
+        System.out.println("Divididas son: " + division);
+    }
+    
 
     public static void ejercicio21(Scanner scanner) {
 
