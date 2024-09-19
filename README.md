@@ -11,6 +11,6 @@ Este proyecto es un trabajo práctico enfocado en el estudio y aplicación de m�
 - Agustín Erbin
 - Emanuel Maltrat
 - Sosa Renzo
-- María De Los Angeles Zalaza
+- María De Los Angeles Zalazar
 
 
